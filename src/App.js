@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Config from './Config';
+import Timer from './Timer';
+
+import { useState } from 'react'
+import ConfigContext from './ConfigContext';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  const [showConfig, setShowConfig] = useState(true)
+
+  return (  
+    <main>
+      <ConfigContext value={{
+        workMinutes:45,
+        breakMinutes:15,
+      }}>
+        {showConfig ? <Config /> : <Timer /> }
+      </ConfigContext>
+      
+    </main>
   );
 }
 
