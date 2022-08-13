@@ -9,22 +9,22 @@ function Config() {
 
   return(
     <div style={{textAlign:'left'}}>
-      <label>Trabalho:</label>
+      <label>{contextInfo.trabalhoMinutes}:00</label>
       <ReactSlider 
       className={'slider'}
       thumbClassName={'thumb'}
       trackClassName={'track'}
-      value={contextInfo.workMinutes}
+      value={contextInfo.trabalhoMinutes}
       min={1}
       max={120}
       />
 
-      <label>Pausa minutos:</label>
+      <label>{contextInfo.pausaMinutes}:00</label>
       <ReactSlider 
       className={'slider green'}
       thumbClassName={'thumb'}
       trackClassName={'track'}
-      value={45}
+      value={contextInfo.pausaMinutes}
       min={1}
       max={120}
 
