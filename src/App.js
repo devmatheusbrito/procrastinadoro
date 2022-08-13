@@ -7,16 +7,23 @@ import ConfigContext from './ConfigContext';
 
 function App() {
 
-  const [showConfig, setShowConfig] = useState(true)
+  const [showConfig, setShowConfig] = useState(false)
+  const [workMinutes, setWorkMinutes] = useState(45)
+  const [breakMinutes, setBreakMinutes] = useState(15)
 
   return (  
     <main>
-      <ConfigContext value={{
-        workMinutes:45,
-        breakMinutes:15,
+      <ConfigContext.Provider value={{
+        showConfig,
+        setShowConfig,
+        workMinutes,
+        setWorkMinutes,
+        breakMinutes,
+        setBreakMinutes,
+
       }}>
         {showConfig ? <Config /> : <Timer /> }
-      </ConfigContext>
+      </ConfigContext.Provider>
       
     </main>
   );
