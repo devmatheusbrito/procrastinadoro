@@ -30,7 +30,7 @@ function Timer() {
   useEffect(() => {
     function switchMode() {
       const nextMode = modeRef.current === 'work' ? 'break' : 'work'
-      const nextSeconds = (nextMode === 'work' ? ConfigContext.workMinutes  : ConfigContext.breakMinutes ) * 60
+      const nextSeconds = (nextMode === 'work' ? contextInfo.workMinutes  : contextInfo.breakMinutes ) * 60
       
       setMode(nextMode)
       modeRef.current = nextMode
@@ -59,10 +59,10 @@ function Timer() {
     : contextInfo.breakMinutes * 60;
   const percentage = Math.round(secondsLeft / totalSeconds * 100);
 
-  const minutes = Math.floor(secondsLeft / 60);
+  let minutes = Math.floor(secondsLeft / 60);
+  if(minutes < 10) minutes = '0' +minutes;
   let seconds = secondsLeft % 60;
-  if(seconds < 10) seconds += '0' +seconds;
-  console.log('whata fuck!!!! why NOTAN?',seconds, minutes, percentage)
+  if(seconds < 10) seconds = '0' +seconds;
 
   return (
     <div>
