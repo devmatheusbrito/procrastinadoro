@@ -48,7 +48,7 @@ function Timer() {
       }
 
       tick()
-    }, 10)
+    }, 1000)
 
     return () => clearInterval(intervalID)
 
